@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liew Sau Yang — Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+<header>
+  <nav>
+    <div class="logo"><span class="logo-mark">ML</span>Liew Sau Yang</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="theme-toggle" id="themeToggle" role="button" aria-label="Toggle light and dark mode">
+      <div class="theme-toggle-knob" id="themeKnob">☾</div>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;" id="heroSection">
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="eyebrow"><span class="pulse"></span>Open to freelance work · Sept 2026</div>
+    <h1 class="name">Liew Sau Yang</h1>
+    <div class="role-cycle">Frontend-leaning Full-Stack Developer — <span class="cur" id="roleCycle">React &amp; TypeScript</span></div>
+    <p class="hero-copy">
+      Final-year Software Engineering student at Sunway University. Just wrapped a 12-week internship
+      building production dashboards used by real operations staff — dark mode, live data widgets,
+      reusable UI components. Now taking on part-time, project-based freelance work.
+    </p>
+    <div class="btn-row">
+      <a href="#projects" class="btn btn-primary">View Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+
+    <div class="status-panel reveal">
+      <div class="status-cell">
+        <div class="status-k">Status</div>
+        <div class="status-v accent">Open to work</div>
+      </div>
+      <div class="status-cell">
+        <div class="status-k">Based in</div>
+        <div class="status-v">Kuala Lumpur, MY</div>
+      </div>
+      <div class="status-cell">
+        <div class="status-k">Availability</div>
+        <div class="status-v">Part-time / Project<small>From September</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head reveal">
+      <div class="sec-tag">01 — About</div>
+      <div class="sec-title">A bit about me</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a final-year <strong>Bachelor of Software Engineering (Hons)</strong> student at Sunway University,
+        graduating in 2026. My degree gave me the fundamentals — data structures, algorithms, OOP design — but the
+        internship is where I learned how software actually gets shipped.</p>
+        <p>At <strong>Industronics Advansystem</strong>, I spent 12 weeks inside a live R&amp;D team building
+        management dashboards for real operational staff. I went from zero React/TypeScript experience to
+        independently shipping system-wide features like dark mode and real-time data widgets that other
+        engineers on the team relied on.</p>
+        <p>I lean frontend — I care a lot about UI consistency and catching the small inconsistencies most people
+        scroll past — but I'm comfortable across the stack with <strong>Python</strong> and <strong>MongoDB</strong>
+        on the backend when a project needs it.</p>
+      </div>
+      <div class="stat-panel reveal">
+        <div class="stat-row"><span class="stat-k">Education</span><span class="stat-v">Sunway University</span></div>
+        <div class="stat-row"><span class="stat-k">Degree</span><span class="stat-v">B.SE (Hons), 2026</span></div>
+        <div class="stat-row"><span class="stat-k">CGPA</span><span class="stat-v">3.43 / 4.00</span></div>
+        <div class="stat-row"><span class="stat-k">Internship</span><span class="stat-v">12 weeks</span></div>
+        <div class="stat-row"><span class="stat-k">Focus</span><span class="stat-v">Frontend-leaning</span></div>
+        <div class="stat-row"><span class="stat-k">Languages</span><span class="stat-v">EN · ZH · MS</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head reveal">
+      <div class="sec-tag">02 — Toolkit</div>
+      <div class="sec-title">What I build with</div>
+    </div>
+    <div class="marquee reveal">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+    <div class="skill-cols reveal">
+      <div class="skill-mod">
+        <div class="skill-mod-title">Frontend</div>
+        <div class="tag-list">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skill-mod">
+        <div class="skill-mod-title">Backend &amp; Data</div>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Axios</span>
+        </div>
+      </div>
+      <div class="skill-mod">
+        <div class="skill-mod-title">Tools &amp; Practice</div>
+        <div class="tag-list">
+          <span class="tag">Git / GitHub</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">QA Testing</span>
+          <span class="tag">Agile Docs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head reveal">
+      <div class="sec-tag">03 — Experience</div>
+      <div class="sec-title">What I've worked on</div>
+    </div>
+    <div class="log reveal">
+      <div class="log-entry">
+        <div class="log-head">
+          <div class="log-role">Full-Stack Developer Intern</div>
+          <div class="log-date">Jan 2026 — Apr 2026</div>
+        </div>
+        <div class="log-org">Industronics Advansystem Sdn. Bhd. — R&amp;D</div>
+
+        <details class="log-proj" open>
+          <summary>Project 1 — Operations Dashboard <span class="chev">▾</span></summary>
+          <div class="log-proj-body">
+            <ul>
+              <li>Shipped a system-wide dark mode across every dashboard view by replacing hardcoded colors with theme variables</li>
+              <li>Built a dynamic weather widget that fetches live weather from geographic coordinates in real time</li>
+              <li>Standardized every dropdown in the app into one centralized, reusable component, plus a universal date/time picker</li>
+              <li>Wrote the staff-facing user manual and ran QA against the production database</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="log-proj">
+          <summary>Project 2 — Resource Management System <span class="chev">▾</span></summary>
+          <div class="log-proj-body">
+            <ul>
+              <li>Built drag-and-drop scheduling and several data-management tabs from scratch</li>
+              <li>Developed Python API endpoints for data retrieval, insertion and updates</li>
+              <li>Managed MongoDB collections and validated the frontend-to-database data mapping</li>
+              <li>Merged feature branches into staging and resolved conflicts without breaking uptime</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-head">
+          <div class="log-role">Senior Assistant Instructor</div>
+          <div class="log-date">2024 — Present</div>
+        </div>
+        <div class="log-org">Maplewood Academy — Taekwondo</div>
+        <details class="log-proj">
+          <summary>Details <span class="chev">▾</span></summary>
+          <div class="log-proj-body">
+            <ul>
+              <li>Lead full classes independently, correcting form and maintaining safety across skill levels</li>
+              <li>Mentor junior instructors on training delivery</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-head reveal">
+      <div class="sec-tag">04 — Projects</div>
+      <div class="sec-title">Things I've built</div>
+    </div>
+
+    <div class="proj-featured reveal">
+      <div>
+        <div class="featured-badge">★ Featured — Capstone</div>
+        <div class="proj-title">Smart AR Navigation App</div>
+        <p class="proj-desc">
+          An Android app that replaces flat 2D map navigation with real-time AR overlays — arrows, route
+          lines and distance markers rendered directly over the camera feed using ARCore, with routing from
+          the Google Maps SDK. Built and tested solo end-to-end: research, system design, implementation
+          and field testing.
+        </p>
+        <div class="proj-tags">
+          <span class="tag">Android</span>
+          <span class="tag">ARCore</span>
+          <span class="tag">Google Maps SDK</span>
+          <span class="tag">GPS/AR</span>
+        </div>
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <a class="code-link" href="smart-ar-navigation.html">Read the full case study →</a>
+          <a class="code-link" href="https://github.com/Marcus0928/SmartARNavigationApp" target="_blank" rel="noopener">View source →</a>
+        </div>
+      </div>
+      <div class="metric-panel">
+        <div class="metric"><span class="metric-num">97.1%</span><span class="metric-label">Pass rate across 69 functional test cases</span></div>
+        <div class="metric"><span class="metric-num">90%</span><span class="metric-label">Field accuracy over a 24km / 30-min drive</span></div>
+        <div class="metric"><span class="metric-num">0</span><span class="metric-label">Failed test cases</span></div>
+      </div>
+    </div>
+
+    <div class="drag-hint reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg>
+      Drag the cards below to reorder them
+    </div>
+    <div class="proj-grid reveal" id="projGrid">
+      <div class="proj-card" draggable="true">
+        <div class="proj-card-title">Pokémon Ga Ole</div>
+        <div class="proj-card-date">Jul 2024 · Team project</div>
+        <p class="proj-card-desc">A Java game built from scratch in a month for an OOP fundamentals assessment — object-oriented design, custom GUI and a real team workflow through GitHub.</p>
+        <div class="proj-card-tags"><span class="tag">Java</span><span class="tag">OOP</span><span class="tag">GUI</span></div>
+      </div>
+      <div class="proj-card" draggable="true">
+        <div class="proj-card-title">AgriAssist</div>
+        <div class="proj-card-date">Jul 2025 · Solo project</div>
+        <p class="proj-card-desc">A desktop app built solo for an OOP assessment, using Scala and Java libraries with Scene Builder for the interface layer.</p>
+        <div class="proj-card-tags"><span class="tag">Scala</span><span class="tag">Java</span><span class="tag">Scene Builder</span></div>
+      </div>
+      <div class="proj-card" draggable="true">
+        <div class="proj-card-title">Vehicle Website</div>
+        <div class="proj-card-date">Jul 2024 · Web fundamentals</div>
+        <p class="proj-card-desc">A multi-page vehicle showcase site — home page and vehicle display pages — built to demonstrate core HTML, CSS and JavaScript fundamentals.</p>
+        <div class="proj-card-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-panel reveal">
+      <div class="contact-title">Let's build something</div>
+      <p class="contact-sub">Open to part-time and project-based frontend / full-stack work starting September 2026. Reach out if something's a fit.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:marcusliew0928@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/marcus-liew-2142a430a" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/Marcus0928" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>LIEW SAU YANG · <span id="footerYear"></span></footer>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const themeKnob = document.getElementById('themeKnob');
+  const body = document.body;
+  function applyTheme(theme){
+    body.setAttribute('data-theme', theme);
+    themeKnob.textContent = theme === 'dark' ? '☾' : '☀';
+    try{ localStorage.setItem('portfolio-theme', theme); }catch(e){}
+  }
+  let savedTheme = 'dark';
+  try{ savedTheme = localStorage.getItem('portfolio-theme') || 'dark'; }catch(e){}
+  applyTheme(savedTheme);
+  themeToggle.addEventListener('click', () => {
+    const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+
+  // Role cycler
+  const roles = ["React & TypeScript", "Python & MongoDB", "Tailwind CSS", "Full-Stack Delivery"];
+  let ri = 0;
+  const roleEl = document.getElementById('roleCycle');
+  setInterval(() => {
+    ri = (ri + 1) % roles.length;
+    roleEl.style.opacity = 0;
+    setTimeout(() => { roleEl.textContent = roles[ri]; roleEl.style.opacity = 1; }, 200);
+  }, 2600);
+
+  // Hero cursor spotlight
+  const heroSection = document.getElementById('heroSection');
+  const heroGlow = document.getElementById('heroGlow');
+  heroSection.addEventListener('mousemove', (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    heroGlow.style.setProperty('--mx', x + '%');
+    heroGlow.style.setProperty('--my', y + '%');
+  });
+
+  // Skills marquee content (duplicated for seamless loop)
+  const marqueeItems = ["React","TypeScript","Tailwind CSS","Python","MongoDB","JavaScript","REST APIs","Axios","Git","HTML/CSS","VS Code","QA Testing"];
+  const track = document.getElementById('marqueeTrack');
+  [...marqueeItems, ...marqueeItems].forEach(item => {
+    const span = document.createElement('span');
+    span.className = 'm-tag';
+    span.textContent = item;
+    track.appendChild(span);
+  });
+
+  // Draggable project cards
+  const grid = document.getElementById('projGrid');
+  let dragEl = null;
+  grid.querySelectorAll('.proj-card').forEach(card => {
+    card.addEventListener('dragstart', () => { dragEl = card; card.classList.add('dragging'); });
+    card.addEventListener('dragend', () => { card.classList.remove('dragging'); dragEl = null;
+      grid.querySelectorAll('.proj-card').forEach(c => c.classList.remove('drag-over')); });
+    card.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      if(card !== dragEl) card.classList.add('drag-over');
+    });
+    card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
+    card.addEventListener('drop', (e) => {
+      e.preventDefault();
+      card.classList.remove('drag-over');
+      if(dragEl && dragEl !== card){
+        const cards = [...grid.children];
+        const dragIdx = cards.indexOf(dragEl);
+        const dropIdx = cards.indexOf(card);
+        if(dragIdx < dropIdx){ card.after(dragEl); } else { card.before(dragEl); }
+      }
+    });
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

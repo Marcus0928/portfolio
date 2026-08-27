@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart AR Navigation App — Liew Sau Yang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Page-specific additions for the case study */
+  .back-link{font-family:var(--mono); font-size:12px; letter-spacing:0.06em; color:var(--text-dim); display:flex; align-items:center; gap:8px; transition:color .15s;}
+  .back-link:hover{color:var(--amber);}
+
+  .case-hero{padding:64px 0 56px;}
+  .case-title{font-size:clamp(30px,4.6vw,46px); font-weight:800; letter-spacing:-0.02em; margin:16px 0 14px;}
+  .case-sub{color:var(--text-dim); font-size:16px; max-width:640px; margin-bottom:28px;}
+  .case-links{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:8px;}
+
+  .quickstats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-top:40px;}
+  @media(max-width:700px){ .quickstats{grid-template-columns:1fr 1fr;} }
+  .qs-cell{background:var(--bg-panel); padding:20px; text-align:center;}
+  .qs-num{font-family:var(--mono); font-weight:700; font-size:26px; color:var(--cyan);}
+  .qs-label{font-family:var(--mono); font-size:10.5px; color:var(--text-dim); letter-spacing:0.06em; text-transform:uppercase; margin-top:6px;}
+
+  .case-section{padding:56px 0; border-top:1px solid var(--border);}
+  .case-section .sec-tag{font-family:var(--mono); font-size:12px; color:var(--amber); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:10px;}
+  .case-section .sec-title{font-size:clamp(22px,2.8vw,28px); font-weight:800; letter-spacing:-0.01em; margin-bottom:24px;}
+  .case-section p{color:var(--text-dim); font-size:15.5px; max-width:720px; margin-bottom:14px;}
+  .case-section strong{color:var(--text); font-weight:600;}
+
+  .feature-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:680px){ .feature-grid{grid-template-columns:1fr;} }
+  .feature-card{background:var(--bg-panel); border:1px solid var(--border); border-radius:10px; padding:20px;}
+  .feature-card-title{font-weight:700; font-size:15px; margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .feature-card-title::before{content:''; width:6px; height:6px; background:var(--cyan); border-radius:1px;}
+  .feature-card p{font-size:13.5px; margin:0;}
+
+  .result-table{width:100%; border-collapse:collapse; margin-top:8px; font-size:13.5px;}
+  .result-table th, .result-table td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--border);}
+  .result-table th{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); font-weight:600;}
+  .result-table td{color:var(--text-dim);}
+  .result-table td:first-child{color:var(--text); font-weight:600; font-family:var(--mono); font-size:12.5px;}
+  .pass-pill{display:inline-block; font-family:var(--mono); font-size:11px; padding:3px 10px; border-radius:12px; background:color-mix(in srgb, var(--cyan) 15%, transparent); color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent);}
+  .partial-pill{display:inline-block; font-family:var(--mono); font-size:11px; padding:3px 10px; border-radius:12px; background:color-mix(in srgb, var(--amber) 15%, transparent); color:var(--amber); border:1px solid color-mix(in srgb, var(--amber) 40%, transparent);}
+
+  .testing-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px;}
+  @media(max-width:760px){ .testing-grid{grid-template-columns:1fr 1fr;} }
+  .testing-card{background:var(--bg-panel); border:1px solid var(--border); border-radius:10px; padding:18px;}
+  .testing-card-title{font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:10px;}
+  .testing-card-body{font-size:13px; color:var(--text-dim);}
+  .testing-card-body b{color:var(--text); font-family:var(--mono);}
+
+  .limits-list{display:flex; flex-direction:column; gap:10px; max-width:720px;}
+  .limits-item{display:flex; gap:12px; align-items:flex-start; font-size:14px; color:var(--text-dim);}
+  .limits-item .k{font-family:var(--mono); font-size:11px; color:var(--text); background:var(--bg-panel-2); border:1px solid var(--border-bright); padding:3px 8px; border-radius:5px; flex-shrink:0; white-space:nowrap;}
+
+  .cta-panel{background:var(--bg-panel); border:1px solid var(--border-bright); border-radius:14px; padding:44px; text-align:center;}
+  .cta-title{font-size:clamp(22px,3vw,28px); font-weight:800; margin-bottom:12px;}
+  .cta-sub{color:var(--text-dim); font-size:14.5px; margin-bottom:24px;}
+</style>
+</head>
+<body data-theme="dark">
+
+<header>
+  <nav>
+    <a href="index.html" class="back-link">← Back to portfolio</a>
+    <div class="theme-toggle" id="themeToggle" role="button" aria-label="Toggle light and dark mode">
+      <div class="theme-toggle-knob" id="themeKnob">☾</div>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="case-hero" style="border-top:none;">
+    <div class="eyebrow"><span class="pulse"></span>Capstone Project · 2026</div>
+    <h1 class="case-title">Smart AR Navigation App</h1>
+    <p class="case-sub">
+      An Android app that replaces flat 2D map navigation with real-time augmented-reality overlays —
+      arrows, route lines and distance markers rendered directly over the live camera feed — to reduce
+      the cognitive load of constantly switching attention between a phone screen and the road.
+    </p>
+    <div class="case-links">
+      <a class="btn btn-primary" href="https://github.com/Marcus0928/SmartARNavigationApp" target="_blank" rel="noopener">View Source on GitHub</a>
+      <a class="btn btn-ghost" href="index.html#projects">See other projects</a>
+    </div>
+
+    <div class="quickstats">
+      <div class="qs-cell"><div class="qs-num">97.1%</div><div class="qs-label">Functional test pass rate</div></div>
+      <div class="qs-cell"><div class="qs-num">90%</div><div class="qs-label">Field accuracy, 24km drive</div></div>
+      <div class="qs-cell"><div class="qs-num">69</div><div class="qs-label">Test cases executed</div></div>
+      <div class="qs-cell"><div class="qs-num">Solo</div><div class="qs-label">Research to field testing</div></div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="case-section">
+    <div class="sec-tag">The Problem</div>
+    <div class="sec-title">Why 2D navigation falls short</div>
+    <p>Traditional navigation apps like Google Maps and Waze rely on 2D map visualization, voice guidance
+    and live traffic updates. But they share a well-documented usability issue: drivers have to repeatedly
+    switch attention between the road ahead and a flat digital map, increasing cognitive load and reducing
+    situational awareness.</p>
+    <p>The project set out to test whether <strong>augmented reality navigation</strong> — projecting
+    arrows and route lines directly onto the driver's real-world view through the camera — could reduce
+    that distraction compared to conventional 2D map navigation, while remaining reliable enough for
+    real driving conditions.</p>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="case-section">
+    <div class="sec-tag">What It Does</div>
+    <div class="sec-title">Core features</div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card-title">Real-time AR overlays</div>
+        <p>Arrows, route lines and distance markers rendered on the live camera feed via ARCore, aligned to the driver's actual field of view.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Google Maps SDK routing</div>
+        <p>Point-to-point route generation, mapping and GPS tracking, so navigation logic stays accurate even as AR handles the visual layer.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Tiered voice guidance</div>
+        <p>Far, mid, and imminent-tier voice announcements timed to the upcoming turn, with mute state synced across screens and persisted across restarts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Graceful degradation</div>
+        <p>Handles GPS signal loss and internet disconnection without crashing, and shows a visual safety overlay when signal is weak.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Live rerouting</div>
+        <p>Detects off-route deviation mid-drive and recalculates the path automatically, tested and confirmed on a real 24km route.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Portrait-locked AR tracking</div>
+        <p>Deliberately scoped to portrait mode only, since ARCore tracking is measurably more stable in that orientation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="case-section">
+    <div class="sec-tag">Under the Hood</div>
+    <div class="sec-title">Tech stack</div>
+    <div class="tag-list">
+      <span class="tag">Android</span>
+      <span class="tag">ARCore</span>
+      <span class="tag">Google Maps SDK</span>
+      <span class="tag">GPS Tracking</span>
+      <span class="tag">Camera / AR Rendering</span>
+    </div>
+  </section>
+
+  <!-- TESTING -->
+  <section class="case-section">
+    <div class="sec-tag">Proving It Works</div>
+    <div class="sec-title">Testing &amp; results</div>
+    <p>Four rounds of testing were run to check the app against its functional and usability goals: functional,
+    performance, usability, and a real-world field test.</p>
+
+    <div class="testing-grid">
+      <div class="testing-card">
+        <div class="testing-card-title">Functional</div>
+        <div class="testing-card-body"><b>67 / 69</b> test cases passed outright, <b>2</b> partial, <b>0</b> failed — covering startup, search, AR navigation, direction &amp; distance accuracy, rerouting and error handling.</div>
+      </div>
+      <div class="testing-card">
+        <div class="testing-card-title">Performance</div>
+        <div class="testing-card-body">Met all non-functional requirements with reasonable margin. Battery drain and device heat were noted, but didn't affect core functionality.</div>
+      </div>
+      <div class="testing-card">
+        <div class="testing-card-title">Usability</div>
+        <div class="testing-card-body">Survey respondents rated the app consistently above the midpoint with no major weaknesses flagged. First-time AR users needed a short adjustment period.</div>
+      </div>
+      <div class="testing-card">
+        <div class="testing-card-title">Field test</div>
+        <div class="testing-card-body">A real <b>24km, 30-minute drive</b> — 90% accuracy, no overlay drift, successful rerouting, and stable AR tracking through a tunnel.</div>
+      </div>
+    </div>
+
+    <table class="result-table">
+      <thead>
+        <tr><th>Test</th><th>What it checked</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>TC-009</td><td>AR screen opens, camera feed displays correctly</td><td><span class="pass-pill">Pass</span></td></tr>
+        <tr><td>TC-021</td><td>Full route walked, all AR arrows matched actual turns</td><td><span class="pass-pill">Pass</span></td></tr>
+        <tr><td>TC-023</td><td>Displayed distance within ±10m of known physical distance</td><td><span class="pass-pill">Pass</span></td></tr>
+        <tr><td>TC-025/026</td><td>Handles GPS loss and internet disconnection without crashing</td><td><span class="pass-pill">Pass</span></td></tr>
+        <tr><td>TC-027</td><td>Detects off-route deviation and recalculates</td><td><span class="pass-pill">Pass</span></td></tr>
+        <tr><td>TC-061/062</td><td>Voice announcements don't repeat or overlap after a reroute</td><td><span class="partial-pill">Partial</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- LIMITATIONS -->
+  <section class="case-section">
+    <div class="sec-tag">Being Honest About Trade-offs</div>
+    <div class="sec-title">Known limitations</div>
+    <div class="limits-list">
+      <div class="limits-item"><span class="k">Hardware</span>Requires an ARCore-supported Android device with a working camera, gyroscope and GPS.</div>
+      <div class="limits-item"><span class="k">Environment</span>Lighting, GPS drift and camera calibration can affect overlay alignment; heavy rain or fog can degrade tracking.</div>
+      <div class="limits-item"><span class="k">Connectivity</span>Route data depends on real-time internet access to the Google Maps API.</div>
+      <div class="limits-item"><span class="k">Battery / heat</span>Continuous camera + GPS use during AR sessions drains battery faster and can heat the device.</div>
+      <div class="limits-item"><span class="k">Scope</span>Point-to-point navigation only — no gesture control or AI-based route optimization in this version.</div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="case-section">
+    <div class="sec-tag">Takeaway</div>
+    <div class="sec-title">What the results actually showed</div>
+    <p>The core navigation experience — route generation, AR overlay rendering, direction and distance accuracy —
+    held up reliably under real outdoor driving conditions. On distraction reduction specifically, results
+    showed AR navigation performing roughly on par with 2D maps, with a slight lean in AR's favor rather than a
+    dramatic improvement — a modest but genuine result, likely tempered by most test participants trying an
+    AR navigation app for the first time.</p>
+    <p>Taken together, the functional, performance, usability and field results supported the project's two
+    goals: a technically reliable AR navigation system, and a measurable usability improvement over
+    conventional 2D navigation.</p>
+  </section>
+
+  <section class="case-section" style="padding-bottom:80px;">
+    <div class="cta-panel">
+      <div class="cta-title">Want to talk through how I built this?</div>
+      <p class="cta-sub">Happy to walk through the architecture, the testing process, or how this approach could translate to a client project.</p>
+      <div class="case-links" style="justify-content:center;">
+        <a class="btn btn-primary" href="mailto:marcusliew0928@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="index.html">Back to portfolio</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>LIEW SAU YANG · <span id="footerYear"></span></footer>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const themeKnob = document.getElementById('themeKnob');
+  const body = document.body;
+  function applyTheme(theme){
+    body.setAttribute('data-theme', theme);
+    themeKnob.textContent = theme === 'dark' ? '☾' : '☀';
+    try{ localStorage.setItem('portfolio-theme', theme); }catch(e){}
+  }
+  let savedTheme = 'dark';
+  try{ savedTheme = localStorage.getItem('portfolio-theme') || 'dark'; }catch(e){}
+  applyTheme(savedTheme);
+  themeToggle.addEventListener('click', () => {
+    const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
